@@ -1,79 +1,3 @@
-# import flask
-# import json
-# from flask import request, jsonify
-# import sqlite3
-# import controller
-# import db
-# from db import create_tables
-
-# app = flask.Flask(__name__)
-# app.config["DEBUG"] = True
-
-
-# @app.route('/api/v1/resources/books/all', methods=["GET"])
-# def get_books():
-#     books = controller.get_books()
-
-#     return jsonify(books)
-
-
-# @app.route("/api/v1/resources/books", methods=["POST"])
-# def insert_book():
-#     bookz = request.get_json()
-#     author = bookz["author"]
-#     published = bookz["published"]
-#     first_sentence = bookz["first_sentence"]
-#     title = bookz["title"]
-#     result = controller.insert_book(author, published, first_sentence, title)
-#     return jsonify(result)
-
-
-# @app.route("/api/v1/resources/books", methods=["PUT"])
-# def update_book():
-#     bookz = request.get_json()
-#     id = bookz["id"]
-#     author = bookz["author"]
-#     published = bookz["published"]
-#     first_sentence = bookz["first_sentence"]
-#     title = bookz["title"]
-#     result = controller.update_book(
-#         id, author, published, first_sentence, title)
-#     return jsonify(result)
-
-
-# @app.route("/api/v1/resources/books/<id>", methods=["DELETE"])
-# def delete_book(id):
-#     result = controller.delete_book(id)
-#     return jsonify(result)
-
-
-# @app.route("/api/v1/resources/books/<id>", methods=["GET"])
-# def get_book_by_id(id):
-#     book = controller.get_by_id(id)
-#     return jsonify(book)
-
-
-# """
-# Enable CORS. Disable it if you don't need CORS
-# """
-
-
-# @app.after_request
-# def after_request(response):
-#     response.headers["Access-Control-Allow-Origin"] = "127.0.0.1:5000"
-#     response.headers["Access-Control-Allow-Credentials"] = "true"
-#     response.headers["Access-Control-Allow-Methods"] = "POST, GET, OPTIONS, PUT, DELETE"
-#     response.headers["Access-Control-Allow-Headers"] = "Accept, Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization"
-#     return response
-
-
-# if __name__ == "__api__":
-#     create_tables()
-#     """
-#     Here you can change debug and port
-#     Remember that, in order to make this API functional, you must set debug in False
-#     """
-#     app.run()
 import json
 import sqlite3
 from sqlite3 import Error
@@ -196,7 +120,7 @@ def post():
             c.execute(
                 '''
                     INSERT INTO books(author, first_sentence, published, title)
-                                VALUES(?, ?, ?, ?, ?);
+                                VALUES(?, ?, ?, ?);
                 ''',
                 (author, first_sentence, published, title)
             )
@@ -232,7 +156,7 @@ def put(id):
                     published = ?
                     first_sentence = ?
                     title = ?
-                    WHERE author = ?;
+                    WHERE id = ?;
                 ''',
                 (author, first_sentence, published, title, id)
             )
