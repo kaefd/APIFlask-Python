@@ -11,4 +11,4 @@ The final_app.py has uploaded on <a href="http://lalat.pythonanywhere.com">pytho
 Try it for testing the API :  <br>
 - http://lalat.pythonanywhere.com/api/v1/resources/books/all
 - http://lalat.pythonanywhere.com/api/v1/resources/books?author=Connie+Willis&published=1993 <br>
-and you can watch <a href="youtube.com">here</a> for more explanation
+and you can watch <a href="https://youtu.be/GsbZHCc1jNY">here</a> for more explanation
